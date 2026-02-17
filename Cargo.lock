@@ -1296,6 +1296,7 @@ dependencies = [
  "defguard_core",
  "defguard_event_logger",
  "defguard_event_router",
+ "defguard_gateway_manager",
  "defguard_proxy_manager",
  "defguard_session_manager",
  "defguard_setup",
@@ -1383,7 +1384,6 @@ dependencies = [
  "defguard_web_ui",
  "futures",
  "humantime",
- "hyper-util",
  "ipnetwork",
  "jsonwebkey",
  "jsonwebtoken",
@@ -1467,6 +1467,32 @@ dependencies = [
 ]
 
 [[package]]
+name = "defguard_gateway_manager"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "defguard_certs",
+ "defguard_common",
+ "defguard_core",
+ "defguard_grpc_tls",
+ "defguard_proto",
+ "defguard_version",
+ "hyper-rustls",
+ "hyper-util",
+ "reqwest",
+ "semver",
+ "serde_json",
+ "sqlx",
+ "thiserror 2.0.18",
+ "tokio",
+ "tokio-stream",
+ "tonic",
+ "tower",
+ "tracing",
+]
+
+[[package]]
 name = "defguard_generator"
 version = "0.0.0"
 dependencies = [
@@ -1479,6 +1505,20 @@ dependencies = [
  "tokio",
  "tracing",
  "tracing-subscriber",
+]
+
+[[package]]
+name = "defguard_grpc_tls"
+version = "0.0.0"
+dependencies = [
+ "defguard_common",
+ "http",
+ "rustls",
+ "thiserror 2.0.18",
+ "tokio",
+ "tower-service",
+ "tracing",
+ "x509-parser 0.18.1",
 ]
 
 [[package]]
@@ -1525,14 +1565,13 @@ dependencies = [
  "defguard_certs",
  "defguard_common",
  "defguard_core",
+ "defguard_grpc_tls",
  "defguard_mail",
  "defguard_proto",
  "defguard_version",
- "http",
  "hyper-rustls",
  "openidconnect",
  "reqwest",
- "rustls",
  "secrecy",
  "semver",
  "sqlx",
@@ -1540,9 +1579,7 @@ dependencies = [
  "tokio",
  "tokio-stream",
  "tonic",
- "tower-service",
  "tracing",
- "x509-parser 0.18.1",
 ]
 
 [[package]]

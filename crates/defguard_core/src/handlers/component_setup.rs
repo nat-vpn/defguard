@@ -958,6 +958,7 @@ pub async fn setup_gateway_tls_stream(
 
         let defguard_certs::CertificateInfo {
             not_after: expiry,
+            serial,
             ..
         } = match parse_certificate_info(cert.der()) {
             Ok(dt) => {
@@ -977,7 +978,7 @@ pub async fn setup_gateway_tls_stream(
             request.common_name,
         );
 
-        gateway.has_certificate = true;
+        gateway.certificate = Some(serial);
         gateway.certificate_expiry = Some(expiry);
 
         if let Err(err) = gateway.save(&pool).await {

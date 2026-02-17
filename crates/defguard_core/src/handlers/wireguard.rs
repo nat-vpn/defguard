@@ -44,7 +44,7 @@ use crate::{
         limits::{get_counts, update_counts},
     },
     events::{ApiEvent, ApiEventType, ApiRequestContext},
-    grpc::gateway::events::GatewayEvent,
+    grpc::GatewayEvent,
     location_management::{
         allowed_peers::get_location_allowed_peers, handle_imported_devices, handle_mapped_devices,
         sync_location_allowed_devices,
