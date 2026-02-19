@@ -66,6 +66,10 @@ export interface OpenEnrollmentTokenModal {
   enrollmentResponse: StartEnrollmentResponse;
 }
 
+export interface OpenAddNewDeviceModal {
+  user: User;
+}
+
 export interface OpenCEWebhookModal {
   webhook?: Webhook;
 }

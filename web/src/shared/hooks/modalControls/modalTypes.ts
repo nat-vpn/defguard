@@ -57,6 +57,7 @@ export const ModalName = {
   EditLogStreaming: 'editLogStreaming',
   DeleteLogStreaming: 'deleteLogStreaming',
   SelfEnrollmentToken: 'selfEnrollmentToken',
+  AddNewDevice: 'addNewDevice',
   AssignUserIP: 'assignUserIP',
   AssignUserDeviceIP: 'assignUserDeviceIP',
 } as const;
@@ -183,6 +184,10 @@ const modalOpenArgsSchema = z.discriminatedUnion('name', [
   z.object({
     name: z.literal(ModalName.LicenseExpired),
     data: z.custom<OpenLicenseExpiredModal>(),
+  }),
+  z.object({
+    name: z.literal(ModalName.AddNewDevice),
+    data: z.custom<User>(),
   }),
   z.object({
     name: z.literal(ModalName.AssignUserIP),
